@@ -10,7 +10,7 @@ part1 input = length [line | line <- input, nub line == line]
 
 part2 :: [[String]] -> Int
 part2 input = length [line | line <- input, nub (wordPerms line) == (wordPerms line)]
-      	    where wordPerms = concatMap permutations
+      	    where wordPerms = concatMap (nub . permutations)
 
 main :: IO ()
 main = do
